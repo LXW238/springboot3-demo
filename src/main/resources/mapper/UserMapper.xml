@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lixinwei.springboot3demo.mapper.UserMapper">
+    <resultMap id="user" type="com.lixinwei.springboot3demo.pojo.User">
+        <result column="id" property="id"></result>
+        <result column="username" property="name"></result>
+        <result column="address" property="address"></result>
+    </resultMap>
+
+    <select id="listUsers" resultMap="user">
+        select *
+        from tb_user;
+    </select>
+    <select id="getById" resultMap="user">
+        select * from tb_user where id=#{id}
+    </select>
+
+</mapper>
